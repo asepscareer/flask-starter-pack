@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">Welcome to Flask Starter Pack!</h1>
+            <p class="lead">A clean and simple Flask application template with authentication, blueprints, and modern UI
+                components.</p>
+            <hr class="my-4">
+            <p>Get started by exploring the features below or checking out the source code structure.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('main.about') }}" role="button">Learn more</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">📋 Blueprints</h5>
+                <p class="card-text">Organized code structure with separate blueprints for main, auth, and API
+                    functionality.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🔐 Authentication</h5>
+                <p class="card-text">Ready-to-use authentication system with login, registration, and user management.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🎨 Bootstrap UI</h5>
+                <p class="card-text">Modern and responsive UI with Bootstrap 5 and custom styling components.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🚀 API Ready</h5>
+                <p class="card-text">RESTful API endpoints with JSON responses. Try the <a
+                        href="{{ url_for('api.health') }}">health check</a>.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">⚙️ Configuration</h5>
+                <p class="card-text">Environment-based configuration with support for development, testing, and
+                    production.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>About Flask Starter Pack</h1>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">🎯 Purpose</h5>
+                <p class="card-text">
+                    This Flask Starter Pack is designed to help developers quickly bootstrap new Flask applications
+                    with a clean, organized structure and essential features already set up.
+                </p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">📁 Project Structure</h5>
+                <p class="card-text">The project follows Flask best practices with:</p>
+                <ul>
+                    <li><strong>Blueprint organization</strong> - Separate modules for main, auth, and API</li>
+                    <li><strong>Template hierarchy</strong> - Base templates with reusable components</li>
+                    <li><strong>Static assets</strong> - CSS, JavaScript, and image organization</li>
+                    <li><strong>Configuration management</strong> - Environment-based config</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">🔧 Features Included</h5>
+                <ul>
+                    <li>Flask-Login for user authentication</li>
+                    <li>Flask-SQLAlchemy for database operations</li>
+                    <li>Flask-WTF for form handling and CSRF protection</li>
+                    <li>Bootstrap 5 for responsive UI</li>
+                    <li>Error handling with custom error pages</li>
+                    <li>RESTful API endpoints</li>
+                    <li>Flash message system</li>
+                    <li>Environment configuration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">🚀 Getting Started</h5>
+                <p class="card-text">
+                    To use this starter pack, clone the repository, install dependencies from
+                    <code>requirements.txt</code>, set up your environment variables, and run the application.
+                </p>
+                <pre class="bg-light p-3 rounded"><code>pip install -r requirements.txt
+export FLASK_APP=wsgi.py
+export FLASK_ENV=development
+flask run</code></pre>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('main.index') }}" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

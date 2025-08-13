@@ -1,0 +1,102 @@
+{% macro badge(text, type="primary") -%}
+<span class="badge bg-{{ type }}">{{ text }}</span>
+{%- endmacro %}
+
+{% macro card(title, content, footer=None, header_class="", body_class="", footer_class="") -%}
+<div class="card">
+    {% if title %}
+    <div class="card-header {{ header_class }}">
+        <h5 class="card-title mb-0">{{ title }}</h5>
+    </div>
+    {% endif %}
+    <div class="card-body {{ body_class }}">
+        {{ content }}
+    </div>
+    {% if footer %}
+    <div class="card-footer {{ footer_class }}">
+        {{ footer }}
+    </div>
+    {% endif %}
+</div>
+{%- endmacro %}
+
+{% macro alert(message, type="info", dismissible=True) -%}
+<div class="alert alert-{{ type }}{% if dismissible %} alert-dismissible fade show{% endif %}" role="alert">
+    {{ message }}
+    {% if dismissible %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    {% endif %}
+</div>
+{%- endmacro %}
+
+{% macro pagination(pagination, endpoint) -%}
+{% if pagination.pages > 1 %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <!-- Previous page -->
+        {% if pagination.has_prev %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for(endpoint, page=pagination.prev_num, **request.args) }}">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+        </li>
+        {% endif %}
+
+        <!-- Page numbers -->
+        {% for page_num in pagination.iter_pages() %}
+        {% if page_num %}
+        {% if page_num != pagination.page %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for(endpoint, page=page_num, **request.args) }}">{{ page_num }}</a>
+        </li>
+        {% else %}
+        <li class="page-item active">
+            <span class="page-link">{{ page_num }}</span>
+        </li>
+        {% endif %}
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">...</span>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Next page -->
+        {% if pagination.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for(endpoint, page=pagination.next_num, **request.args) }}">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Next</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{%- endmacro %}
+
+{% macro table(headers, rows, table_class="table table-striped") -%}
+<div class="table-responsive">
+    <table class="{{ table_class }}">
+        <thead>
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{%- endmacro %}

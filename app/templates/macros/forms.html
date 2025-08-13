@@ -1,0 +1,49 @@
+{% macro render_field(field, label_class="form-label", field_class="form-control") -%}
+<div class="mb-3">
+    {{ field.label(class=label_class) }}
+    {{ field(class=field_class + (" is-invalid" if field.errors else "")) }}
+    {% if field.errors %}
+    <div class="invalid-feedback">
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if field.description %}
+    <div class="form-text">{{ field.description }}</div>
+    {% endif %}
+</div>
+{%- endmacro %}
+
+{% macro render_checkbox(field, label_class="form-check-label") -%}
+<div class="mb-3 form-check">
+    {{ field(class="form-check-input" + (" is-invalid" if field.errors else "")) }}
+    {{ field.label(class=label_class) }}
+    {% if field.errors %}
+    <div class="invalid-feedback">
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{%- endmacro %}
+
+{% macro render_submit(field, class="btn btn-primary") -%}
+{{ field(class=class) }}
+{%- endmacro %}
+
+{% macro render_form_errors(form) -%}
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+    <h6>Please correct the following errors:</h6>
+    <ul class="mb-0">
+        {% for field_name, field_errors in form.errors.items() %}
+        {% for error in field_errors %}
+        <li>{{ field_name }}: {{ error }}</li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{%- endmacro %}

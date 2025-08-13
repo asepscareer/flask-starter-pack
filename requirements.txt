@@ -1,0 +1,42 @@
+# Core Flask packages
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Database
+Flask-SQLAlchemy==3.0.5
+Flask-Migrate==4.0.5
+
+# Authentication
+Flask-Login==0.6.3
+Flask-WTF==1.1.1
+WTForms==3.0.1
+
+# Security
+Flask-Talisman==1.1.0
+
+# Forms and validation
+email-validator==2.0.0
+
+# Environment management
+python-dotenv==1.0.0
+
+# Mail (optional)
+Flask-Mail==0.9.1
+
+# Caching (optional)
+Flask-Caching==2.1.0
+redis==5.0.0
+
+# API
+Flask-RESTful==0.3.10
+Flask-CORS==4.0.0
+
+# Production server
+gunicorn==21.2.0
+
+# Development tools
+flask-shell-ipython==0.5.3
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
