@@ -1,6 +1,6 @@
 # Core Flask packages
 Flask==2.3.3
-Werkzeug==2.3.7
+Werkzeug==3.0.6
 
 # Database
 Flask-SQLAlchemy==3.0.5
