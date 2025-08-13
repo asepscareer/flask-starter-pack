@@ -32,7 +32,7 @@ Flask-RESTful==0.3.10
 Flask-CORS==4.0.0
 
 # Production server
-gunicorn==21.2.0
+gunicorn==23.0.0
 
 # Development tools
 flask-shell-ipython==0.5.3
