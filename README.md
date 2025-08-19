@@ -1,7 +1,5 @@
 # Flask Starter Pack
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/flask-starter-pack-1?referralCode=asepsp)
-
 A clean and organized Flask application starter template with authentication, blueprints, and modern UI components.
 
 ## 🚀 Features
